@@ -1,9 +1,9 @@
 <?php
 class Car
 {
-    public $make_model;
-    public $price;
-    public $miles;
+    private $make_model;
+    private $price;
+    private $miles;
 
     function __construct($car_model, $car_miles, $car_price = 45000)
     {
@@ -12,7 +12,42 @@ class Car
       $this->price = $car_price;
 
     }
+    function setName($new_name)
+    {
+      $changed_name = (string) $new_name;
+      $this->make_model = $changed_name;
+    }
+    function getName()
+    {
+      return $this->make_model;
+    }
+    function setPrice($new_price)
+    {
+      $float_price = (float) $new_price;
+      if ($float_price != 0) {
+        $formatted_price = number_format($float_price, 2);
+        $this->price = $formatted_price;
+      }
+    }
+
+    function getPrice()
+    {
+      return $this->price;
+    }
+    function setMileage($new_mileage)
+    {
+      $number_mileage = $new_mileage;
+      if ($number_mileage != 0) {
+        $this->miles = $number_mileage;
+      }
+    }
+    function getMiles()
+    {
+      return $this->miles;
+    }
+
 }
+
 
 
 $porsche = new Car("2014 Porsche 911", 7864, 114991 );
@@ -26,7 +61,7 @@ $cars = array($porsche, $ford, $lexus, $mercedes);
 
 $cars_matching_search = array();
 foreach ($cars as $car) {
-    if ($car->price < $_GET["price"]) {
+    if ($car->getPrice() < $_GET["price"]) {
         array_push($cars_matching_search, $car);
     }
 }
@@ -42,10 +77,13 @@ foreach ($cars as $car) {
     <ul>
         <?php
             foreach ($cars_matching_search as $car) {
-                echo "<li> $car->make_model </li>";
+                $car_name = $car->getName();
+                $car_price = $car->getPrice();
+                $car_mileage = $car->getMiles();
+                echo "<li> $car_name </li>";
                 echo "<ul>";
-                    echo "<li> $$car->price </li>";
-                    echo "<li> Miles: $car->miles </li>";
+                    echo "<li> $$car_price </li>";
+                    echo "<li> Miles: $car_mileage </li>";
                 echo "</ul>";
             }
         ?>
