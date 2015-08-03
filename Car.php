@@ -5,7 +5,7 @@ class Car
     public $price;
     public $miles;
 
-    function __contruct($car_model, $car_price, $car_miles)
+    function __construct($car_model, $car_price, $car_miles)
     {
       $this->make_model = $car_model;
       $this->price = $car_price;
@@ -18,6 +18,8 @@ $porsche = new Car("2014 Porsche 911", 114991, 7864);
 $ford = new Car("2011 Ford F450", 55995, 14241);
 $lexus = new Car("2013 Lexus RX 350", 44700, 20000);
 $mercedes = new Car("Mercedes Benz CLS550", 39900, 37979);
+
+
 
 $cars = array($porsche, $ford, $lexus, $mercedes);
 
