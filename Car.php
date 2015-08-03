@@ -12,15 +12,18 @@ class Car
       $this->price = $car_price;
 
     }
+
     function setName($new_name)
     {
       $changed_name = (string) $new_name;
       $this->make_model = $changed_name;
     }
+
     function getName()
     {
       return $this->make_model;
     }
+
     function setPrice($new_price)
     {
       $float_price = (float) $new_price;
@@ -34,13 +37,15 @@ class Car
     {
       return $this->price;
     }
+
     function setMileage($new_mileage)
     {
-      $number_mileage = $new_mileage;
+      $number_mileage = (integer) $new_mileage;
       if ($number_mileage != 0) {
         $this->miles = $number_mileage;
       }
     }
+
     function getMiles()
     {
       return $this->miles;
@@ -55,6 +60,10 @@ $ford = new Car("2011 Ford F450", 14241);
 $lexus = new Car("2013 Lexus RX 350", 20000);
 $mercedes = new Car("Mercedes Benz CLS550", 37979, 39900);
 
+$porsche->setName("2013 Porsche 911");
+$porsche->setMileage(55555);
+$lexus->setPrice(0);
+$porsche->setName("2012 Porsche 911");
 
 
 $cars = array($porsche, $ford, $lexus, $mercedes);
