@@ -3,12 +3,16 @@ class Car
 {
     private $make_model;
     private $price;
+    private $image;
     private $miles;
 
-    function __construct($car_model, $car_miles, $car_price = 45000)
+
+    function __construct($car_model, $car_image, $car_miles, $car_price = 45000)
     {
       $this->make_model = $car_model;
+      $this->image = $car_image;
       $this->miles = $car_miles;
+
       $this->price = $car_price;
 
     }
@@ -55,15 +59,16 @@ class Car
 
 
 
-$porsche = new Car("2014 Porsche 911", 7864, 114991 );
-$ford = new Car("2011 Ford F450", 14241);
-$lexus = new Car("2013 Lexus RX 350", 20000);
-$mercedes = new Car("Mercedes Benz CLS550", 37979, 39900);
+$porsche = new Car("2014 Porsche 911", "images/911.jpeg", 7864, 114991 );
+$ford = new Car("2011 Ford F450", "images/ford.jpg", 14241);
+$lexus = new Car("2013 Lexus RX 350", "images/lexus.jpg", 20000);
+$mercedes = new Car("Mercedes Benz CLS550", "images/mercedes.jpg", 37979, 39900);
 
 $porsche->setName("2013 Porsche 911");
 $porsche->setMileage(55555);
 $lexus->setPrice(0);
 $porsche->setName("2012 Porsche 911");
+$mercedes->setName("2009 Mercedes Benz CLS550")
 
 
 $cars = array($porsche, $ford, $lexus, $mercedes);
