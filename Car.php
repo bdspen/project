@@ -84,7 +84,7 @@ $cars = array($porsche, $ford, $lexus, $mercedes);
 
 $cars_matching_search = array();
 foreach ($cars as $car) {
-    if ($car->getPrice() < $_GET["price"]) {
+    if ($car->getPrice() <= $_GET["price"] && $car->getMiles() <= $_GET["mileage"]) {
         array_push($cars_matching_search, $car);
     }
 }
@@ -111,6 +111,10 @@ foreach ($cars as $car) {
                     echo "<li> $$car_price </li>";
                     echo "<li> Miles: $car_mileage </li>";
                 echo "</ul>";
+            }
+            if (empty($cars_matching_search))
+            {
+              echo "<p> Sorry no cars match your search</p>";
             }
         ?>
     </ul>
