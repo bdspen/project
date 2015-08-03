@@ -5,19 +5,20 @@ class Car
     public $price;
     public $miles;
 
-    function __construct($car_model, $car_price, $car_miles)
+    function __construct($car_model, $car_miles, $car_price = 45000)
     {
       $this->make_model = $car_model;
-      $this->price = $car_price;
       $this->miles = $car_miles;
+      $this->price = $car_price;
+
     }
 }
 
 
-$porsche = new Car("2014 Porsche 911", 114991, 7864);
-$ford = new Car("2011 Ford F450", 55995, 14241);
-$lexus = new Car("2013 Lexus RX 350", 44700, 20000);
-$mercedes = new Car("Mercedes Benz CLS550", 39900, 37979);
+$porsche = new Car("2014 Porsche 911", 7864, 114991 );
+$ford = new Car("2011 Ford F450", 14241);
+$lexus = new Car("2013 Lexus RX 350", 20000);
+$mercedes = new Car("Mercedes Benz CLS550", 37979, 39900);
 
 
 
